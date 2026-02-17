@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>STACKLY · 404 heritage lost</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & GLOBAL ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0e0e0e;
+      color: #ffffff;
+      overflow-x: hidden;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* ===== ENHANCED ANIME BACKGROUND ===== */
+    .bg-anime {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.12) 0%, transparent 32%),
+        radial-gradient(circle at 80% 70%, rgba(150, 120, 80, 0.08) 0%, transparent 42%),
+        radial-gradient(circle at 40% 80%, rgba(200, 160, 100, 0.1) 0%, transparent 38%),
+        repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.02) 0px, rgba(212, 175, 55, 0.02) 2px, transparent 2px, transparent 10px),
+        repeating-linear-gradient(135deg, rgba(100, 80, 60, 0.02) 0px, rgba(100,80,60,0.02) 3px, transparent 3px, transparent 12px);
+      background-size: 250% 250%, 220% 220%, 230% 230%, auto, auto;
+      animation: zenFloat 36s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes zenFloat {
+      0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0 0, 0 0; }
+      100% { background-position: 7% 10%, 9% 5%, 12% 8%, 20px 20px, -10px -10px; }
+    }
+
+    .floating-particles {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        radial-gradient(circle at 15% 25%, rgba(212, 175, 55, 0.15) 1px, transparent 1px),
+        radial-gradient(circle at 70% 55%, rgba(180, 150, 100, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 88% 15%, rgba(230, 200, 140, 0.08) 2px, transparent 2px),
+        radial-gradient(circle at 5% 80%, rgba(200, 160, 100, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 45% 45%, rgba(212, 175, 55, 0.05) 2px, transparent 2px);
+      background-size: 240px 240px, 280px 280px, 320px 320px, 200px 200px, 400px 400px;
+      animation: particleFlow 60s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes particleFlow {
+      0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+      100% { background-position: 500px 400px, -300px 600px, 400px -250px, -200px 350px, 300px -300px; }
+    }
+
+    /* ===== MAIN 404 CONTAINER ===== */
+    .wrapper {
+      position: relative;
+      z-index: 20;
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .error-card {
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 48px;
+      padding: 4rem 3rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 175, 55, 0.1) inset;
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      transition: transform 0.3s ease;
+    }
+
+    .error-card:hover {
+      transform: scale(1.01);
+      border-color: rgba(212, 175, 55, 0.6);
+    }
+
+    /* ===== 404 NUMBER WITH JUMPING ANIMATION ===== */
+    .error-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 25vw, 12rem);
+      font-weight: 700;
+      line-height: 1;
+      color: #d4af37;
+      text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.2rem;
+    }
+
+    .jump-digit {
+      display: inline-block;
+      animation: digitJump 2.5s infinite ease-in-out;
+      animation-delay: calc(0.12s * var(--i));
+    }
+
+    @keyframes digitJump {
+      0%, 80%, 100% { transform: translateY(0) rotate(0deg); }
+      15% { transform: translateY(-20px) rotate(-2deg); }
+      30% { transform: translateY(8px) rotate(1deg); }
+      45% { transform: translateY(-6px) rotate(-0.5deg); }
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1.2rem;
+      letter-spacing: 2px;
+    }
+
+    h1 span {
+      color: #d4af37;
+    }
+
+    .description {
+      font-size: clamp(1rem, 4vw, 1.3rem);
+      color: #ccc;
+      max-width: 550px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .search-group {
+      display: flex;
+      max-width: 450px;
+      margin: 2rem auto 2.5rem;
+      border-bottom: 2px solid #d4af37;
+      align-items: center;
+      background: rgba(0,0,0,0.3);
+      border-radius: 50px;
+      padding: 0.2rem 0.2rem 0.2rem 1.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .search-group input {
+      background: transparent;
+      border: none;
+      padding: 1rem 0;
+      width: 100%;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search-group input::placeholder {
+      color: #aaa;
+      font-weight: 300;
+    }
+
+    .search-group button {
+      background: #d4af37;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .search-group button:hover {
+      background: #c6a229;
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    }
+
+    /* ===== QUICK LINKS (WORKING BUTTONS) ===== */
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2.5rem 0 2rem;
+    }
+
+    .nav-btn {
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      color: white;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      font-weight: 500;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+    }
+
+    .nav-btn i {
+      color: #d4af37;
+      transition: 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: #d4af37;
+      color: #000;
+      border-color: #d4af37;
+      transform: translateY(-3px);
+    }
+
+    .nav-btn:hover i {
+      color: #000;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #000;
+      border: none;
+    }
+
+    .btn-primary i {
+      color: #000;
+    }
+
+    /* ===== FOOTER NOTE ===== */
+    .footer-note {
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-note a {
+      color: #aaa;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .footer-note a:hover {
+      color: #d4af37;
+    }
+
+    /* ===== JUMPING MENY STYLE (for links) ===== */
+    .nav-btn, .footer-note a {
+      display: inline-block;
+    }
+    .nav-btn:hover, .footer-note a:hover {
+      animation: menyJump 0.4s ease;
+    }
+    @keyframes menyJump {
+      0%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-4px); }
+      60% { transform: translateY(2px); }
+    }
+
+    /* ===== FULL RESPONSIVE WITH MOBILE MEDIA QUERY ===== */
+    @media (max-width: 768px) {
+      .error-card {
+        padding: 3rem 1.5rem;
+        border-radius: 32px;
+      }
+
+      .search-group {
+        flex-direction: column;
+        background: transparent;
+        border: none;
+        gap: 1rem;
+      }
+
+      .search-group input {
+        border: 1px solid #333;
+        border-radius: 50px;
+        padding: 1rem 1.5rem;
+        background: rgba(0,0,0,0.5);
+        text-align: center;
+      }
+
+      .search-group button {
+        width: 100%;
+        padding: 1rem;
+      }
+
+      .quick-links {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-btn {
+        justify-content: center;
+      }
+
+      .footer-note {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .error-card {
+        padding: 2rem 1rem;
+      }
+
+      .description {
+        margin-bottom: 1.8rem;
+      }
+
+      .quick-links {
+        margin: 1.8rem 0;
+      }
+    }
+
+    /* small height adjustment */
+    @media (max-height: 700px) {
+      .error-card {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- anime background -->
+  <div class="bg-anime"></div>
+  <div class="floating-particles"></div>
+
+  <div class="wrapper">
+    <div class="error-card fade-up">
+      <!-- 404 with jumping digits -->
+      <div class="error-number">
+        <span class="jump-digit" style="--i:1">4</span>
+        <span class="jump-digit" style="--i:2">0</span>
+        <span class="jump-digit" style="--i:3">4</span>
+      </div>
+
+      <h1><span>heritage</span> not found</h1>
+      <p class="description">
+        The page you are looking for might have been moved, demolished, or never existed. 
+        But great estates are still waiting.
+      </p>
+
+      <!-- search bar working with demo validation -->
+      <div class="search-group">
+        <input type="text" id="searchInput" placeholder="Search properties...">
+        <button id="searchBtn"><i class="fa fa-search" style="margin-right: 6px;"></i>Search</button>
+      </div>
+      <div id="searchMessage" style="font-size: 0.9rem; min-height: 24px; color: #d4af37;"></div>
+
+      <!-- quick links (working buttons) -->
+      <div class="quick-links">
+        <a href="index.html" class="nav-btn btn-primary"><i class="fa fa-home"></i> Homepage</a>
+        <a href="#" class="nav-btn"><i class="fa fa-building"></i> Properties</a>
+        <a href="#" class="nav-btn"><i class="fa fa-image"></i> Portfolio</a>
+        <a href="#" class="nav-btn"><i class="fa fa-envelope"></i> Contact</a>
+      </div>
+
+      <!-- footer note with jumping links -->
+      <div class="footer-note">
+        <a href="#"><i class="fa-regular fa-circle-question"></i> Help Center</a>
+        <a href="#"><i class="fa-regular fa-map"></i> Sitemap</a>
+        <a href="#"><i class="fa-regular fa-clock"></i> Recent Listings</a>
+        <a href="#"><i class="fa-regular fa-star"></i> Concierge</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // search button demo with validation
+      const searchBtn = document.getElementById('searchBtn');
+      const searchInput = document.getElementById('searchInput');
+      const msgDiv = document.getElementById('searchMessage');
+
+      searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query === '') {
+          msgDiv.innerText = 'Please enter a destination or property.';
+          msgDiv.style.color = '#c44545';
+        } else {
+          msgDiv.innerText = `🔍 Searching for "${query}"... (demo)`;
+          msgDiv.style.color = '#d4af37';
+        }
+      });
+
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          searchBtn.click();
+        }
+      });
+
+      // optional: clear message when focus
+      searchInput.addEventListener('focus', () => {
+        msgDiv.innerText = '';
+      });
+    })();
+  </script>
+</body>
+</html>
